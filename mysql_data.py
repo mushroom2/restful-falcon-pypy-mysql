@@ -21,5 +21,10 @@ class MySQLData:
         cursor.close()
         return result
 
+    def post_data(self, query, fields):
+        cur = self.conn.cursor()
+        cur.execute(query, fields)
+        self.conn.commit()
+
     def disconnect_from_db(self):
         self.conn.close()
