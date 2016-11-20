@@ -10,7 +10,7 @@ def my_date(dat):
     if isinstance(dat, datetime.datetime):
         return dat.__str__()
 
-class ThingsResource(object):
+class GoodsResource(object):
 
 
     def on_get(self, req, resp):
@@ -25,7 +25,8 @@ class ThingsResource(object):
             raise falcon.HTTPError(falcon.HTTP_400, 'Error', ex.message)
         try:
             res = json.loads(raw_json, encoding='utf-8')
-            mycon.post_data(("INSERT INTO goods (good_name, in_shop, good_price ) VALUES (%s, %s, %s)"),
+            mycon.post_data(("INSERT INTO goods (good_name, in_shop, good_price )"
+                             " VALUES (%s, %s, %s)"),
                             (res['good_name'], res['in_shop'], res['good_price']))
 
         except ValueError:
