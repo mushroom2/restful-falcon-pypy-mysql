@@ -3,10 +3,6 @@ import json
 import falcon
 import datetime
 
-mycon = mysql_data.MySQLData()
-mycon.connect_to_db('falcontexample.mysql.pythonanywhere-services.com', 'falcontexample',
-                    'sfera1488', 'falcontexample$restfulshopdb')
-
 
 def my_date(dat):
     if isinstance(dat, datetime.datetime):
@@ -16,6 +12,9 @@ def my_date(dat):
 class GetGoodById():
 
     def on_get(self, req, resp, goodid):
+        mycon = mysql_data.MySQLData()
+        mycon.connect_to_db('falcontexample.mysql.pythonanywhere-services.com', 'falcontexample',
+                    'sfera1488', 'falcontexample$restfulshopdb')
         res = mycon.get_data('SELECT good_name, date, in_shop, good_price FROM goods WHERE good_id = ' + goodid)
         resp.set_header('Content-Type', 'application/json; charset=utf-8')
         resp.status = falcon.HTTP_200

@@ -3,9 +3,7 @@ import mysql_data
 import json
 import datetime
 
-mycon = mysql_data.MySQLData()
-mycon.connect_to_db('falcontexample.mysql.pythonanywhere-services.com', 'falcontexample',
-                    'sfera1488', 'falcontexample$restfulshopdb')
+
 
 def my_date(dat):
     if isinstance(dat, datetime.datetime):
@@ -13,14 +11,19 @@ def my_date(dat):
 
 class GoodsResource(object):
 
-
     def on_get(self, req, resp):
+        mycon = mysql_data.MySQLData()
+        mycon.connect_to_db('falcontexample.mysql.pythonanywhere-services.com', 'falcontexample',
+                    'sfera1488', 'falcontexample$restfulshopdb')
         resp.status = falcon.HTTP_200  # This is the default status
         res = mycon.get_data('SELECT * FROM goods')
         resp.body = json.dumps(res, default=my_date)
         mycon.disconnect_from_db()
 
     def on_post(self, req, resp):
+        mycon = mysql_data.MySQLData()
+        mycon.connect_to_db('falcontexample.mysql.pythonanywhere-services.com', 'falcontexample',
+                    'sfera1488', 'falcontexample$restfulshopdb')
         try:
             raw_json = req.stream.read()
         except Exception as ex:
