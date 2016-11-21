@@ -9,5 +9,5 @@
 > You may add any product in the table by the POST method from "/goods"'
 > you have to send json (for example) { "in_shop": 1/0,'"good_name": "your product name", "good_price": *your product price*}'
 >
-> '\n "goods/{id}" - GET products by ID'
+> "goods/{id}" - GET products by ID'
 >
