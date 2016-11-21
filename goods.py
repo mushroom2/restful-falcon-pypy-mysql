@@ -5,7 +5,7 @@ import datetime
 
 mycon = mysql_data.MySQLData()
 mycon.connect_to_db('falcontexample.mysql.pythonanywhere-services.com', 'falcontexample$restfulshopdb',
-                    'sferalaser1488', 'restfulshopdb')
+                    'sfera1488', 'restfulshopdb')
 
 def my_date(dat):
     if isinstance(dat, datetime.datetime):
