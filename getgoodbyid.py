@@ -4,8 +4,8 @@ import falcon
 import datetime
 
 mycon = mysql_data.MySQLData()
-mycon.connect_to_db('falcontexample.mysql.pythonanywhere-services.com', 'falcontexample$restfulshopdb',
-                    'sfera1488', 'restfulshopdb')
+mycon.connect_to_db('falcontexample.mysql.pythonanywhere-services.com', 'falcontexample',
+                    'sfera1488', 'falcontexample$restfulshopdb')
 
 
 def my_date(dat):
