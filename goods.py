@@ -4,7 +4,7 @@ import json
 import datetime
 
 mycon = mysql_data.MySQLData()
-mycon.connect_to_db('falcontexample.mysql.pythonanywhere-services.com', 'falcontexample',
+mycon.connect_to_db('falcontexample.mysql.pythonanywhere-services.com', 'falcontexample$restfulshopdb',
                     'sferalaser1488', 'restfulshopdb')
 
 def my_date(dat):
