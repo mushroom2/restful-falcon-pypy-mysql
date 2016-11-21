@@ -20,6 +20,7 @@ class GetGoodById():
         resp.set_header('Content-Type', 'application/json; charset=utf-8')
         resp.status = falcon.HTTP_200
         resp.body = json.dumps(res, default=my_date)
+        mycon.disconnect_from_db()
 
 
 

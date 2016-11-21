@@ -18,6 +18,7 @@ class GoodsResource(object):
         resp.status = falcon.HTTP_200  # This is the default status
         res = mycon.get_data('SELECT * FROM goods')
         resp.body = json.dumps(res, default=my_date)
+        mycon.disconnect_from_db()
 
     def on_post(self, req, resp):
         try:
@@ -34,4 +35,5 @@ class GoodsResource(object):
             raise falcon.HTTPError(falcon.HTTP_400, 'Invalid JSON', 'Could not decode the request body. The ''JSON was incorrect.')
         resp.status = falcon.HTTP_202
         resp.body = 'Successfully inserted'
+        mycon.disconnect_from_db()
 
