@@ -26,5 +26,15 @@ class MySQLData:
         cur.execute(query, fields)
         self.conn.commit()
 
+    def delete_row(self, id):
+        cur = self.conn.cursor()
+        cur.execute('delete from goods where good_id=' + id)
+        self.conn.commit()
+
+    def delete_collection(self):
+        cur = self.conn.cursor()
+        cur.execute('TRUNCATE TABLE goods')
+        self.conn.commit()
+
     def disconnect_from_db(self):
         self.conn.close()

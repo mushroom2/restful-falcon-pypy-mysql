@@ -10,7 +10,9 @@ class IndexResource(object):
                      '\n You may add any product in the table by the POST method from "/goods"'
                      '\n you have to send json (for example) { "in_shop": 1/0 *product availability*, '
                      '"good_name": "your product name", "good_price": *your product price*}'
+                     '\n You may clear table by the DELETE method from "/goods"'
                      '\n "goods/{id}" - GET products by ID'
+                     '\n You may delete any product in the table by the DELETE method from "goods/{id}"'
                      '\n '
                      )
 
